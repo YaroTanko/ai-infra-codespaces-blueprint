@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "knowledge.lookup output",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {"type": "object"}
+    }
+  },
+  "required": ["results"],
+  "additionalProperties": false
+}

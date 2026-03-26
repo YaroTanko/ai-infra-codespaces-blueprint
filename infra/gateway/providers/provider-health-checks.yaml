@@ -17,6 +17,6 @@ spec:
                 - /bin/sh
                 - -lc
                 - |
-                  set -euo pipefail
+                  set -eu
                   curl -fsS http://llmd:8000/healthz
                   curl -fsS http://vllm:8001/healthz

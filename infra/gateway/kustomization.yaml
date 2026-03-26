@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - kgateway/namespace.yaml
   - kgateway/controller.yaml
+  - kgateway/gatewayclass.yaml
+  - kgateway/gateway.yaml
   - kgateway/routes.yaml
   - agent-gateway/deployment.yaml
   - agent-gateway/service.yaml

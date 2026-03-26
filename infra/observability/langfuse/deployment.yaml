@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: langfuse
-          image: ghcr.io/langfuse/langfuse:2
+          image: ghcr.io/langfuse/langfuse:2.93.0
           ports:
             - containerPort: 3000
             - containerPort: 4317

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "incident.search input",
+  "type": "object",
+  "properties": {
+    "term": {"type": "string"},
+    "severity": {"type": "string", "enum": ["low", "medium", "high", "critical"]}
+  },
+  "required": ["term"],
+  "additionalProperties": false
+}

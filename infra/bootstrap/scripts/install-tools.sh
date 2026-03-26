@@ -5,6 +5,9 @@ BIN_DIR="${HOME}/.local/bin"
 mkdir -p "${BIN_DIR}"
 export PATH="${BIN_DIR}:$PATH"
 
+HELM_VERSION="v3.15.4"
+FLUX_VERSION="2.3.0"
+
 install_kubectl() {
   curl -fsSL -o /tmp/kubectl "https://dl.k8s.io/release/v1.30.2/bin/linux/amd64/kubectl"
   chmod +x /tmp/kubectl
@@ -18,11 +21,17 @@ install_kind() {
 }
 
 install_helm() {
-  curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+  curl -fsSL -o /tmp/helm.tgz "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz"
+  tar -xzf /tmp/helm.tgz -C /tmp
+  chmod +x /tmp/linux-amd64/helm
+  mv /tmp/linux-amd64/helm "${BIN_DIR}/helm"
 }
 
 install_flux() {
-  curl -fsSL https://fluxcd.io/install.sh | sudo bash
+  curl -fsSL -o /tmp/flux.tgz "https://github.com/fluxcd/flux2/releases/download/v${FLUX_VERSION}/flux_${FLUX_VERSION}_linux_amd64.tar.gz"
+  tar -xzf /tmp/flux.tgz -C /tmp
+  chmod +x /tmp/flux
+  mv /tmp/flux "${BIN_DIR}/flux"
 }
 
 install_k9s() {
