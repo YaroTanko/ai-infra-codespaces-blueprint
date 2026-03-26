@@ -1,4 +1,7 @@
+<<<<<<< cursor/development-environment-setup-6e43
 node_modules/
+=======
+>>>>>>> main
 .env
 .env.*
 !.env.example
