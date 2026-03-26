@@ -4,8 +4,8 @@
   "private": true,
   "description": "AI Reliability Engineering Infrastructure Blueprint for Codespaces + Kubernetes",
   "scripts": {
-    "lint": "markdownlint '**/*.md' --ignore node_modules",
-    "lint:fix": "markdownlint '**/*.md' --ignore node_modules --fix",
+    "lint": "markdownlint \"**/*.md\" --ignore node_modules",
+    "lint:fix": "markdownlint \"**/*.md\" --ignore node_modules --fix",
     "test": "npm run lint"
   },
   "repository": {
@@ -13,6 +13,9 @@
     "url": "git+https://github.com/YaroTanko/ai-infra-codespaces-blueprint.git"
   },
   "license": "ISC",
+  "engines": {
+    "node": ">=20"
+  },
   "devDependencies": {
     "markdownlint-cli": "^0.48.0"
   }

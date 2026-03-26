@@ -25,11 +25,13 @@ Run `npm run lint` (or `npx markdownlint '**/*.md' --ignore node_modules`) to li
 Docker must be started manually in the Cloud Agent environment:
 
 ```sh
-sudo dockerd &>/tmp/dockerd.log &
+sudo dockerd >/tmp/dockerd.log 2>&1 &
 sleep 3
 ```
 
-### Creating a kind cluster
+### Creating a kind cluster (Codespaces / local only)
+
+> **Note:** kind and k3d clusters do **not** work in the Cursor Cloud Agent VM (see Key caveats below). The following commands are for GitHub Codespaces or local development only.
 
 Per DESIGN.md Stage 1, the project targets a 3-node kind cluster:
 
@@ -40,6 +42,7 @@ sudo kind create cluster --name ai-infra
 Use `sudo` because Docker runs as root. After creation, copy the kubeconfig for non-root use:
 
 ```sh
+mkdir -p ~/.kube
 sudo kind get kubeconfig --name ai-infra > ~/.kube/config
 ```
 
