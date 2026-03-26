@@ -1,53 +1,50 @@
-# read.md
+# Development Environment Setup
 
-## 1) Step-by-step instruction for Coded Space
+## 1) Step-by-step instructions for GitHub Codespaces (Coded Space)
 
-1. Open your repository in Coded Space.
-2. Wait for the workspace/container to finish initializing.
-3. Open the integrated terminal.
-4. Verify available tools:
+1. Open your repository in [GitHub Codespaces](https://github.com/features/codespaces), then create a new Codespace.
+2. Wait for the workspace container to finish initialization.
+3. Open the integrated terminal and verify Git:
    - `git --version`
-   - `python3 --version` (if Python is used)
-   - `node --version` and `npm --version` (if Node.js is used)
-5. Install project dependencies:
-   - Python project: `pip install -r requirements.txt`
-   - Node.js project: `npm install`
-6. Set environment variables (if needed), for example by creating `.env` from `.env.example`.
-7. Run the project:
-   - Python example: `python3 app.py` or `pytest`
-   - Node.js example: `npm run dev` or `npm test`
-8. Make changes, run tests, then commit and push:
+4. Check repository contents to understand current scope:
+   - `ls`
+   - This repository currently contains planning/design markdown files (no `requirements.txt`, `package.json`, or app entrypoint yet).
+5. If you need environment variables, copy `.env.example` to `.env` only when `.env.example` exists.
+6. Never commit secrets:
+   - ensure `.env` is ignored by Git (see `.gitignore`)
+   - store sensitive values in your platform's secure secrets mechanism
+7. Make your documentation/infrastructure changes in the workspace.
+8. Commit and push:
    - `git add .`
    - `git commit -m "your message"`
    - `git push`
 
-## 2) Step-by-step instruction for Local ENV (including tool downloads)
+## 2) Step-by-step instructions for local environment setup (including tool downloads)
 
 1. Download and install required tools:
    - Git: https://git-scm.com/downloads
    - A code editor (choose one):
      - Cursor: https://www.cursor.com/downloads
      - VS Code: https://code.visualstudio.com/
-   - Python (if needed): https://www.python.org/downloads/
-   - Node.js LTS (if needed): https://nodejs.org/en/download
-   - Docker Desktop (optional): https://www.docker.com/products/docker-desktop/
-2. Verify installation in a terminal:
+2. Download optional tools used in this repository's planned infrastructure workflows:
+   - Docker Desktop: https://www.docker.com/products/docker-desktop/
+   - kubectl: https://kubernetes.io/docs/tasks/tools/
+   - kind: https://kind.sigs.k8s.io/docs/user/quick-start/
+   - Helm: https://helm.sh/docs/intro/install/
+3. Verify installation in a terminal:
    - `git --version`
-   - `python --version` or `python3 --version`
-   - `node --version` and `npm --version`
-   - `docker --version` (if using Docker)
-3. Clone the repository:
+   - `docker --version` (if installed)
+   - `kubectl version --client` (if installed)
+   - `kind version` (if installed)
+   - `helm version` (if installed)
+4. Clone the repository:
    - `git clone <repository-url>`
    - `cd <repository-folder>`
-4. Open the project in your editor (Cursor or VS Code).
-5. Install dependencies:
-   - Python project: `pip install -r requirements.txt`
-   - Node.js project: `npm install`
-6. Configure environment variables:
-   - Copy `.env.example` to `.env` (if provided), then set values.
-7. Start and test the application:
-   - Python example: `python3 app.py` or `pytest`
-   - Node.js example: `npm run dev` or `npm test`
+5. Open the project in your editor (Cursor or VS Code).
+6. If `.env.example` exists, copy it to `.env` and set values for your machine.
+7. Keep secrets safe:
+   - do not commit `.env`
+   - use secure secret stores for real credentials
 8. Commit and push your work:
    - `git add .`
    - `git commit -m "your message"`
