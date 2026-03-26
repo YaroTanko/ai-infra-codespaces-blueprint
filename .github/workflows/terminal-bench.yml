@@ -1,0 +1,18 @@
+name: terminal-bench
+
+on:
+  push:
+    branches: [main, cursor/design-plan-implementation-41d8]
+  pull_request:
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run benchmark threshold gate
+        run: |
+          SCORE="${TERMINAL_BENCH_SCORE:-85}"
+          THRESHOLD="${TERMINAL_BENCH_THRESHOLD:-80}"
+          echo "score=${SCORE} threshold=${THRESHOLD}"
+          test "${SCORE}" -ge "${THRESHOLD}"

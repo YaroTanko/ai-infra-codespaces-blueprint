@@ -1,0 +1,13 @@
+apiVersion: gateway.ai/v1
+kind: ProviderRoutingPolicy
+metadata:
+  name: default-provider-routing
+  namespace: gateway-system
+spec:
+  primary: llmd
+  fallback: vllm
+  providers:
+    - name: llmd
+      endpoint: http://llmd.gateway-system.svc.cluster.local:8000
+    - name: vllm
+      endpoint: http://vllm.gateway-system.svc.cluster.local:8001

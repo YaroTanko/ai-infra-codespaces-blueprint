@@ -1,0 +1,8 @@
+apiVersion: agents.ai/v1
+kind: RuntimeProfile
+metadata:
+  name: langchain-runtime
+  namespace: agents-system
+spec:
+  framework: langchain
+  entrypoint: runtime/langchain/main.py

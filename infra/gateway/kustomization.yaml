@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - kgateway/namespace.yaml
+  - kgateway/controller.yaml
+  - kgateway/routes.yaml
+  - agent-gateway/deployment.yaml
+  - agent-gateway/service.yaml
+  - agent-gateway/provider-routing-policy.yaml
+  - providers/llmd/deployment.yaml
+  - providers/llmd/service.yaml
+  - providers/vllm/deployment.yaml
+  - providers/vllm/service.yaml
+  - providers/provider-health-checks.yaml

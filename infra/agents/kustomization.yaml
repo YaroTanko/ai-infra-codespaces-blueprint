@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - kagent/namespace.yaml
+  - kagent/controller.yaml
+  - kagent/agent-template.yaml
+  - temporal/deployment.yaml
+  - temporal/service.yaml
+  - runtime/langgraph-runtime.yaml
+  - runtime/langchain-runtime.yaml

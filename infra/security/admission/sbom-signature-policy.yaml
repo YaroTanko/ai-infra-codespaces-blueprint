@@ -1,0 +1,8 @@
+apiVersion: security.ai/v1
+kind: AdmissionPolicyBundle
+metadata:
+  name: sbom-signature-enforcement
+spec:
+  enforce:
+    - requireCosignSignature
+    - requireCycloneDXSbom

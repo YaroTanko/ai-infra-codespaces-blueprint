@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-collector-config
+  namespace: observability-system
+data:
+  otel-collector-config.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+          http:
+    exporters:
+      logging: {}
+      otlp/phoenix:
+        endpoint: phoenix.observability-system.svc.cluster.local:4317
+      otlp/langfuse:
+        endpoint: langfuse.observability-system.svc.cluster.local:4317
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          exporters: [logging, otlp/phoenix, otlp/langfuse]

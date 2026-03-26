@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: kagent-worker-scale
+  namespace: agents-system
+spec:
+  scaleTargetRef:
+    name: kagent-controller
+  minReplicaCount: 1
+  maxReplicaCount: 8
+  triggers:
+    - type: cpu
+      metadata:
+        type: Utilization
+        value: "65"

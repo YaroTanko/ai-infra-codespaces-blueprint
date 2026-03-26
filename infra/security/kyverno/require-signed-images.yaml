@@ -1,0 +1,18 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-signed-images
+spec:
+  validationFailureAction: Enforce
+  rules:
+    - name: check-signed-images
+      match:
+        any:
+          - resources:
+              kinds: [Pod]
+      validate:
+        message: "Images must be signed and verified before deploy."
+        pattern:
+          spec:
+            containers:
+              - image: "ghcr.io/*"

@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: kmcp-scale
+  namespace: agents-system
+spec:
+  scaleTargetRef:
+    name: kmcp-default
+  minReplicaCount: 1
+  maxReplicaCount: 6
+  triggers:
+    - type: cpu
+      metadata:
+        type: Utilization
+        value: "70"

@@ -1,0 +1,24 @@
+name: sign-and-verify
+
+on:
+  push:
+    branches: [main, cursor/design-plan-implementation-41d8]
+  pull_request:
+
+jobs:
+  verify-signature-policy:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_REF: ghcr.io/example/agent-gateway:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3.6.0
+      - name: Policy gate for unsigned images
+        run: |
+          echo "Verifying image signature for ${IMAGE_REF}"
+          if ! cosign verify --certificate-oidc-issuer=https://token.actions.githubusercontent.com "${IMAGE_REF}" >/tmp/cosign.out 2>/tmp/cosign.err; then
+            echo "Unsigned or unverifiable artifact blocked."
+            cat /tmp/cosign.err
+            exit 1
+          fi

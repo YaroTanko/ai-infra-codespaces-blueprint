@@ -1,0 +1,9 @@
+apiVersion: agents.ai/v1
+kind: AgentTemplate
+metadata:
+  name: baseline-agent
+  namespace: agents-system
+spec:
+  runtimeRef: langgraph-runtime
+  toolRegistryRef: kmcp-default
+  memoryRef: unified-memory-adapter

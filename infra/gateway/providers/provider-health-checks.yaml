@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: provider-health-checks
+  namespace: gateway-system
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: probe
+              image: curlimages/curl:8.7.1
+              command:
+                - /bin/sh
+                - -lc
+                - |
+                  curl -fsS http://llmd:8000/healthz
+                  curl -fsS http://vllm:8001/healthz

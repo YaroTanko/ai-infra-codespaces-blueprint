@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kagent-controller
+  namespace: agents-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kagent-controller
+  template:
+    metadata:
+      labels:
+        app: kagent-controller
+    spec:
+      containers:
+        - name: controller
+          image: ghcr.io/example/kagent:latest

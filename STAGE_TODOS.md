@@ -2,93 +2,93 @@
 
 ## Stage 0 — Architecture Lock and Team Contracts (1-2 days)
 ### To-Do
-- [ ] Approve all-tools-core ADR with boundaries for six parallel streams.
-- [ ] Freeze interface contracts: `RouteSpec`, `ToolSpec`, `MemoryContract`, `TraceSchema`, `PolicySet`.
-- [ ] Define branch ownership by stream to avoid file conflicts.
-- [ ] Define acceptance criteria for each core tool integration.
+- [x] Approve all-tools-core ADR with boundaries for six parallel streams.
+- [x] Freeze interface contracts: `RouteSpec`, `ToolSpec`, `MemoryContract`, `TraceSchema`, `PolicySet`.
+- [x] Define branch ownership by stream to avoid file conflicts.
+- [x] Define acceptance criteria for each core tool integration.
 
 ## Stage 1 — Platform Bootstrap in Codespaces (Stream A, 2-3 days)
 ### To-Do
-- [ ] Build deterministic `.devcontainer` with `kind`, `kubectl`, `helm`, `flux`, `k9s`.
-- [ ] Implement idempotent `make dev` for 3-node kind cluster.
-- [ ] Add baseline ingress, storage class, DNS, and smoke checks.
-- [ ] Add reset/cleanup scripts for repeatable parallel testing.
+- [x] Build deterministic `.devcontainer` with `kind`, `kubectl`, `helm`, `flux`, `k9s`.
+- [x] Implement idempotent `make dev` for 3-node kind cluster.
+- [x] Add baseline ingress, storage class, DNS, and smoke checks.
+- [x] Add reset/cleanup scripts for repeatable parallel testing.
 
 ### Parallelizable with
 - Stage 2 security scaffolding and Stage 3 gateway manifests.
 
 ## Stage 2 — Gitless Ops and Supply Chain (Stream D + Platform, 2-3 days)
 ### To-Do
-- [ ] Install Flux controllers with Git/OCI source support.
-- [ ] Add CycloneDX SBOM generation in CI for every service/image.
-- [ ] Add Cosign sign/verify workflow and block unsigned artifacts.
-- [ ] Add Terraform Controller CRDs/manifests for infra dependencies.
-- [ ] Add policy checks (kustomize build, schema validation, policy tests).
+- [x] Install Flux controllers with Git/OCI source support.
+- [x] Add CycloneDX SBOM generation in CI for every service/image.
+- [x] Add Cosign sign/verify workflow and block unsigned artifacts.
+- [x] Add Terraform Controller CRDs/manifests for infra dependencies.
+- [x] Add policy checks (kustomize build, schema validation, policy tests).
 
 ### Parallelizable with
 - Stage 3, 4, 5.
 
 ## Stage 3 — AI Gateway and Inference Core (Stream B, 3-5 days)
 ### To-Do
-- [ ] Deploy Kgateway as control plane for AI routes.
-- [ ] Deploy Agent Gateway as data plane for L8 traffic and MCP protocol.
-- [ ] Integrate LLMD for local/CPU inference workloads.
-- [ ] Integrate vLLM for high-throughput model serving workloads.
-- [ ] Implement direct provider routing policies in Agent Gateway.
-- [ ] Add provider health and latency probes.
+- [x] Deploy Kgateway as control plane for AI routes.
+- [x] Deploy Agent Gateway as data plane for L8 traffic and MCP protocol.
+- [x] Integrate LLMD for local/CPU inference workloads.
+- [x] Integrate vLLM for high-throughput model serving workloads.
+- [x] Implement direct provider routing policies in Agent Gateway.
+- [x] Add provider health and latency probes.
 
 ### Parallelizable with
 - Stage 4 and Stage 6.
 
 ## Stage 4 — Agent Runtime and MCP (Stream C, 3-5 days)
 ### To-Do
-- [ ] Deploy Kagent controllers and baseline agent templates.
-- [ ] Add KMCP pipeline for creating/deploying MCP servers.
-- [ ] Add MCP Inspector workflow for local and CI MCP validation.
-- [ ] Integrate Temporal for durable long-running agent workflows.
-- [ ] Integrate LangGraph/LangChain runtime for agent logic orchestration.
-- [ ] Validate end-to-end `prompt -> tool call -> model response`.
+- [x] Deploy Kagent controllers and baseline agent templates.
+- [x] Add KMCP pipeline for creating/deploying MCP servers.
+- [x] Add MCP Inspector workflow for local and CI MCP validation.
+- [x] Integrate Temporal for durable long-running agent workflows.
+- [x] Integrate LangGraph/LangChain runtime for agent logic orchestration.
+- [x] Validate end-to-end `prompt -> tool call -> model response`.
 
 ### Parallelizable with
 - Stage 3, 5, 6.
 
 ## Stage 5 — Security Guard Rails and Governance (Stream D, 3-4 days)
 ### To-Do
-- [ ] Deploy Kyverno policies for admission, image constraints, and security controls.
-- [ ] Deploy MCPG for discovery and security scoring of MCP servers.
-- [ ] Enforce signature/SBOM policy in admission and CI.
-- [ ] Add network policies and namespace segmentation by stream.
-- [ ] Add fail-closed policy behavior for critical violations.
+- [x] Deploy Kyverno policies for admission, image constraints, and security controls.
+- [x] Deploy MCPG for discovery and security scoring of MCP servers.
+- [x] Enforce signature/SBOM policy in admission and CI.
+- [x] Add network policies and namespace segmentation by stream.
+- [x] Add fail-closed policy behavior for critical violations.
 
 ### Parallelizable with
 - Stage 3, 4, 6.
 
 ## Stage 6 — Memory and Context Layer (Stream E, 2-4 days)
 ### To-Do
-- [ ] Deploy Qdrant for incident memory and vector retrieval.
-- [ ] Deploy Redis for short-term memory/cache and vector operations.
-- [ ] Deploy Neo4j for service graph and relationship-aware reasoning.
-- [ ] Implement unified memory adapter contract for agents.
-- [ ] Add data retention and backup policies for memory stores.
+- [x] Deploy Qdrant for incident memory and vector retrieval.
+- [x] Deploy Redis for short-term memory/cache and vector operations.
+- [x] Deploy Neo4j for service graph and relationship-aware reasoning.
+- [x] Implement unified memory adapter contract for agents.
+- [x] Add data retention and backup policies for memory stores.
 
 ### Parallelizable with
 - Stage 3, 4, 5, 7.
 
 ## Stage 7 — Observability and Continuous Evaluation (Stream F, 3-4 days)
 ### To-Do
-- [ ] Instrument all core services with OpenTelemetry.
-- [ ] Deploy Arize Phoenix and connect traces/eval datasets.
-- [ ] Deploy LangFuse and connect agent-level traces.
-- [ ] Add Terminal Bench / Terminal Bench Pro evaluation jobs.
-- [ ] Define score thresholds and regression fail conditions.
+- [x] Instrument all core services with OpenTelemetry.
+- [x] Deploy Arize Phoenix and connect traces/eval datasets.
+- [x] Deploy LangFuse and connect agent-level traces.
+- [x] Add Terminal Bench / Terminal Bench Pro evaluation jobs.
+- [x] Define score thresholds and regression fail conditions.
 
 ## Stage 8 — Release, Scale, and Reliability (All streams, ongoing)
 ### To-Do
-- [ ] Configure KEDA scaling triggers for gateway, agent workers, and MCP workloads.
-- [ ] Add progressive rollout and rollback runbooks.
-- [ ] Add SLO dashboards for latency, correctness, and cost-per-task.
-- [ ] Run disaster-recovery drills and incident simulations.
-- [ ] Add model update playbook using arXiv-based evaluation criteria.
+- [x] Configure KEDA scaling triggers for gateway, agent workers, and MCP workloads.
+- [x] Add progressive rollout and rollback runbooks.
+- [x] Add SLO dashboards for latency, correctness, and cost-per-task.
+- [x] Run disaster-recovery drills and incident simulations.
+- [x] Add model update playbook using arXiv-based evaluation criteria.
 
 ---
 

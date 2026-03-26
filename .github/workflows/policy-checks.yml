@@ -1,0 +1,14 @@
+name: policy-checks
+
+on:
+  push:
+    branches: [main, cursor/design-plan-implementation-41d8]
+  pull_request:
+
+jobs:
+  validate-manifests-and-policies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate repository contracts and policy gates
+        run: make validate
