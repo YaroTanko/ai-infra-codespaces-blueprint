@@ -12,12 +12,13 @@
 5. If you need environment variables, copy `.env.example` to `.env` only when `.env.example` exists.
 6. Never commit secrets:
    - ensure `.env` is ignored by Git (see `.gitignore`)
-   - store sensitive values in your platform's secure secrets mechanism
+   - in GitHub Codespaces, store sensitive values in [GitHub repository/org secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [GitHub Codespaces secrets](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
+   - never put credentials in `.env` files or shell history
 7. Make your documentation/infrastructure changes in the workspace.
 8. Commit and push:
    - `git add .`
    - `git commit -m "your message"`
-   - `git push`
+   - `git push -u origin <branch-name>`
 
 ## 2) Step-by-step instructions for local environment setup (including tool downloads)
 
