@@ -1,0 +1,10 @@
+apiVersion: security.ai/v1
+kind: FailClosedPolicy
+metadata:
+  name: critical-fail-closed
+spec:
+  criticalViolations:
+    - unsigned-image
+    - missing-sbom
+    - mcpg-high-risk-tool
+  action: deny

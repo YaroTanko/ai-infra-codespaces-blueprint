@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - otel/collector-config.yaml
+  - otel/deployment.yaml
+  - otel/service.yaml
+  - phoenix/deployment.yaml
+  - phoenix/service.yaml
+  - langfuse/deployment.yaml
+  - langfuse/service.yaml

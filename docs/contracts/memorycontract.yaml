@@ -1,0 +1,13 @@
+apiVersion: contracts.ai/v1
+kind: MemoryContract
+metadata:
+  name: unified-memory-adapter
+spec:
+  operations:
+    - name: upsertVector
+      backend: qdrant
+    - name: getShortTerm
+      backend: redis
+    - name: getRelationshipPath
+      backend: neo4j
+  retentionClasses: [short_term, incident, graph]

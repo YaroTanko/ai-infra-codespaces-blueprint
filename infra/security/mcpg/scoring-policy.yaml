@@ -1,0 +1,11 @@
+apiVersion: security.ai/v1
+kind: MCPRiskPolicy
+metadata:
+  name: default-mcp-risk-policy
+  namespace: security-system
+spec:
+  failThreshold: high
+  requiredSignals:
+    - networkExposure
+    - secretAccess
+    - dataExfiltrationRisk

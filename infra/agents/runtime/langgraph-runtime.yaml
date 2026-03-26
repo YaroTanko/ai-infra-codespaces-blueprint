@@ -1,0 +1,8 @@
+apiVersion: agents.ai/v1
+kind: RuntimeProfile
+metadata:
+  name: langgraph-runtime
+  namespace: agents-system
+spec:
+  framework: langgraph
+  entrypoint: runtime/langgraph/main.py

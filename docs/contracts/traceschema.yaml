@@ -1,0 +1,14 @@
+apiVersion: contracts.ai/v1
+kind: TraceSchema
+metadata:
+  name: agent-trace-schema
+spec:
+  requiredAttributes:
+    - ai.request.id
+    - ai.route.id
+    - ai.tool.name
+    - ai.model.provider
+  spanNaming:
+    gateway: gateway.request
+    agent: agent.run
+    tool: mcp.tool.call

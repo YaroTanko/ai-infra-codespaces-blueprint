@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: terraform-controller
+  namespace: terraform-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: terraform-controller
+  template:
+    metadata:
+      labels:
+        app: terraform-controller
+    spec:
+      containers:
+        - name: controller
+          image: ghcr.io/example/terraform-controller:v0.1.0
+          imagePullPolicy: IfNotPresent

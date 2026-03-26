@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kmcp-default
+  namespace: agents-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kmcp-default
+  template:
+    metadata:
+      labels:
+        app: kmcp-default
+    spec:
+      containers:
+        - name: mcp
+          image: ghcr.io/example/kmcp-server:v0.1.0
+          ports:
+            - containerPort: 8090

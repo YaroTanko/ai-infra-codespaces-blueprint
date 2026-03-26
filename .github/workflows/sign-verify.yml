@@ -1,0 +1,27 @@
+name: sign-and-verify
+
+on:
+  push:
+    branches: [main, cursor/design-plan-implementation-41d8]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify-signature-policy:
+    runs-on: ubuntu-latest
+    env:
+      CERT_ISSUER: https://token.actions.githubusercontent.com
+      CERT_IDENTITY_REGEX: '^https://github.com/.+/.+/.github/workflows/.+@refs/.+$'
+      IMAGE_REF: ${{ vars.SIGN_VERIFY_IMAGE_REF }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3.6.0
+      - name: Skip when image reference is not configured
+        if: env.IMAGE_REF == ''
+        run: echo "Skipping signature verification; set repository variable SIGN_VERIFY_IMAGE_REF to enable."
+      - name: Verify signed image when configured
+        if: env.IMAGE_REF != ''
+        run: |
+          echo "Verifying image signature for ${IMAGE_REF}"
+          cosign verify             --certificate-oidc-issuer="${CERT_ISSUER}"             --certificate-identity-regexp="${CERT_IDENTITY_REGEX}"             "${IMAGE_REF}"

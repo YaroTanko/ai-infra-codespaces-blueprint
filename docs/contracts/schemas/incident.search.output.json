@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "incident.search output",
+  "type": "object",
+  "properties": {
+    "matches": {
+      "type": "array",
+      "items": {"type": "object"}
+    }
+  },
+  "required": ["matches"],
+  "additionalProperties": false
+}

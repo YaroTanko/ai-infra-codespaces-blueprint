@@ -1,0 +1,15 @@
+apiVersion: contracts.ai/v1
+kind: RouteSpec
+metadata:
+  name: default-ai-route
+spec:
+  routeId: ai-default
+  host: ai-gateway.local
+  pathPrefix: /v1
+  backendService: agent-gateway
+  backendPort: 8080
+  timeoutMs: 30000
+  retries: 2
+  healthProbe:
+    path: /healthz
+    intervalSeconds: 10

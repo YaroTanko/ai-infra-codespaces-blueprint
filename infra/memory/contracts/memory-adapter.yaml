@@ -1,0 +1,15 @@
+apiVersion: memory.ai/v1
+kind: UnifiedMemoryAdapter
+metadata:
+  name: unified-memory-adapter
+  namespace: ai-system
+spec:
+  vectorStore:
+    provider: qdrant
+    endpoint: http://qdrant.ai-system.svc.cluster.local:6333
+  cacheStore:
+    provider: redis
+    endpoint: redis.ai-system.svc.cluster.local:6379
+  graphStore:
+    provider: neo4j
+    endpoint: neo4j.ai-system.svc.cluster.local:7687

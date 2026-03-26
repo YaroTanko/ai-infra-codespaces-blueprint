@@ -1,0 +1,15 @@
+apiVersion: contracts.ai/v1
+kind: PolicySet
+metadata:
+  name: security-policyset
+spec:
+  levels:
+    - name: critical
+      mode: enforce
+    - name: medium
+      mode: audit
+  gates:
+    - kyverno
+    - mcpg
+    - cosign
+    - cyclonedx

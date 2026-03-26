@@ -1,0 +1,14 @@
+apiVersion: contracts.ai/v1
+kind: ModelRoutePolicy
+metadata:
+  name: default-model-route-policy
+spec:
+  defaultProvider: llmd
+  fallbackProvider: vllm
+  routingRules:
+    - name: low-latency
+      maxLatencyMs: 250
+      preferredProviders: [llmd, vllm]
+    - name: throughput
+      minTokensPerSecond: 200
+      preferredProviders: [vllm, llmd]
