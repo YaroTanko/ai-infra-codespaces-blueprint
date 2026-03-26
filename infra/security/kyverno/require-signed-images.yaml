@@ -4,15 +4,19 @@ metadata:
   name: require-signed-images
 spec:
   validationFailureAction: Enforce
+  background: false
   rules:
-    - name: check-signed-images
+    - name: verify-ghcr-signatures
       match:
         any:
           - resources:
-              kinds: [Pod]
-      validate:
-        message: "Images must be signed and verified before deploy."
-        pattern:
-          spec:
-            containers:
-              - image: "ghcr.io/*"
+              kinds:
+                - Pod
+      verifyImages:
+        - imageReferences:
+            - "ghcr.io/*"
+          attestors:
+            - entries:
+                - keyless:
+                    issuer: "https://token.actions.githubusercontent.com"
+                    subjectRegExp: "^https://github.com/.+/.+/.github/workflows/.+@refs/.+$"

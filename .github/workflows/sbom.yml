@@ -10,10 +10,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generate CycloneDX SBOM
+      - name: Detect Node manifests
+        id: detect
+        run: |
+          if [[ -f package.json ]]; then
+            echo "node_project=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "node_project=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Generate CycloneDX SBOM for Node
+        if: steps.detect.outputs.node_project == 'true'
         uses: CycloneDX/gh-node-module-generatebom@v1
         with:
           output-file: sbom.cdx.json
+      - name: Generate fallback CycloneDX SBOM scaffold
+        if: steps.detect.outputs.node_project != 'true'
+        run: |
+          cat > sbom.cdx.json <<JSON
+          {
+            "bomFormat": "CycloneDX",
+            "specVersion": "1.5",
+            "version": 1,
+            "metadata": {
+              "component": {
+                "type": "application",
+                "name": "${GITHUB_REPOSITORY}"
+              }
+            },
+            "components": []
+          }
+          JSON
       - name: Upload SBOM artifact
         uses: actions/upload-artifact@v4
         with:

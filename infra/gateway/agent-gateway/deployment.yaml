@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: ghcr.io/example/agent-gateway:latest
+          image: ghcr.io/example/agent-gateway:v0.1.0
           ports:
             - containerPort: 8080
           readinessProbe:

@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
         - name: controller
-          image: ghcr.io/example/kagent:latest
+          image: ghcr.io/example/kagent:v0.1.0

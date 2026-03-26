@@ -4,6 +4,6 @@ metadata:
   name: kmcp-default
   namespace: agents-system
 spec:
-  image: ghcr.io/example/kmcp-server:latest
+  image: ghcr.io/example/kmcp-server:v0.1.0
   transport: http
   port: 8090

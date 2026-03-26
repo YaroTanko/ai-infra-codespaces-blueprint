@@ -9,7 +9,7 @@ if ! command -v kind >/dev/null 2>&1; then
   exit 1
 fi
 
-if kind get clusters | rg "^${CLUSTER_NAME}$" >/dev/null 2>&1; then
+if kind get clusters | grep -E "^${CLUSTER_NAME}$" >/dev/null 2>&1; then
   echo "[kind] cluster ${CLUSTER_NAME} already exists"
 else
   kind create cluster --name "${CLUSTER_NAME}" --config "${KIND_CONFIG}"

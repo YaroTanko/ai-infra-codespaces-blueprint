@@ -7,5 +7,9 @@ spec:
   selector:
     app: phoenix
   ports:
-    - port: 6006
+    - name: ui
+      port: 6006
       targetPort: 6006
+    - name: otlp-grpc
+      port: 4317
+      targetPort: 4317

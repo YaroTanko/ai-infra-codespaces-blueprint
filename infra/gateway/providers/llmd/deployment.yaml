@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: llmd
-          image: ghcr.io/example/llmd:latest
+          image: ghcr.io/example/llmd:v0.1.0
           ports:
             - containerPort: 8000
           readinessProbe:

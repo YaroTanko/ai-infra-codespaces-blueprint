@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
         - name: controller
-          image: ghcr.io/example/terraform-controller:latest
+          image: ghcr.io/example/terraform-controller:v0.1.0
           imagePullPolicy: IfNotPresent

@@ -6,6 +6,7 @@ resources:
   - qdrant/pvc.yaml
   - redis/deployment.yaml
   - redis/service.yaml
+  - neo4j/secret.yaml
   - neo4j/deployment.yaml
   - neo4j/service.yaml
   - neo4j/pvc.yaml

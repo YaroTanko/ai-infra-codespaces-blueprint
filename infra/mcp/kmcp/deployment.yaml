@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: mcp
-          image: ghcr.io/example/kmcp-server:latest
+          image: ghcr.io/example/kmcp-server:v0.1.0
           ports:
             - containerPort: 8090

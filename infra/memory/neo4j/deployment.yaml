@@ -18,7 +18,10 @@ spec:
           image: neo4j:5.22
           env:
             - name: NEO4J_AUTH
-              value: none
+              valueFrom:
+                secretKeyRef:
+                  name: neo4j-auth
+                  key: NEO4J_AUTH
           ports:
             - containerPort: 7474
             - containerPort: 7687

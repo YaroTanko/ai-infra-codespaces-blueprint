@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: vllm
-          image: ghcr.io/example/vllm:latest
+          image: ghcr.io/example/vllm:v0.1.0
           ports:
             - containerPort: 8001
           readinessProbe:

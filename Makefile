@@ -17,6 +17,8 @@ validate:
 	./scripts/validate_contracts.sh
 	./scripts/check_stage_markers.sh
 	./scripts/policy_tests.sh
+	./scripts/validate_kustomize.sh
+	./scripts/validate_manifest_shape.sh
 
 mcp-inspect:
 	./scripts/mcp-inspector/run.sh

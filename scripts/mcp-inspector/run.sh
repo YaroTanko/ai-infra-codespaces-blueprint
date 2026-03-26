@@ -10,6 +10,6 @@ else
   echo "[mcp-inspector] endpoint not reachable; static checks only"
 fi
 
-rg -n "kind: MCPServerTemplate|kind: ToolSpec" infra/mcp docs/contracts >/dev/null
+grep -R -n -E "kind: MCPServerTemplate|kind: ToolSpec" infra/mcp docs/contracts >/dev/null
 
 echo "[mcp-inspector] templates and contracts found"

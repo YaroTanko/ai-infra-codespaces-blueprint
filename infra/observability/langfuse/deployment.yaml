@@ -18,3 +18,4 @@ spec:
           image: ghcr.io/langfuse/langfuse:2
           ports:
             - containerPort: 3000
+            - containerPort: 4317
