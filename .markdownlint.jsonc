@@ -1,0 +1,12 @@
+{
+  "default": true,
+  "MD013": false,
+  "MD022": false,
+  "MD024": false,
+  "MD032": false,
+  "MD033": {
+    "allowed_elements": ["mermaid", "br", "details", "summary"]
+  },
+  "MD041": false,
+  "MD060": false
+}
