@@ -8,7 +8,7 @@
    - `git --version`
 4. Check repository contents to understand current scope:
    - `ls`
-   - This repository currently contains planning/design markdown files (no `requirements.txt`, `package.json`, or app entrypoint yet).
+   - Review the listed files (for example app code, `requirements.txt`, `package.json`, or similar) and follow any language/framework-specific setup instructions if present.
 5. If you need environment variables, copy `.env.example` to `.env` only when `.env.example` exists.
 6. Never commit secrets:
    - ensure `.env` is ignored by Git (see `.gitignore`)
