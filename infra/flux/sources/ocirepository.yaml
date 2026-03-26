@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: ai-infra-bundles
+  namespace: flux-system
+spec:
+  interval: 5m
+  url: oci://ghcr.io/example/ai-infra-bundles
+  ref:
+    tag: latest

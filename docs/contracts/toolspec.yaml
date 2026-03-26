@@ -1,0 +1,14 @@
+apiVersion: contracts.ai/v1
+kind: ToolSpec
+metadata:
+  name: mcp-tool-registry
+spec:
+  tools:
+    - name: knowledge.lookup
+      protocol: mcp
+      inputSchemaRef: schemas/knowledge.lookup.input.json
+      outputSchemaRef: schemas/knowledge.lookup.output.json
+    - name: incident.search
+      protocol: mcp
+      inputSchemaRef: schemas/incident.search.input.json
+      outputSchemaRef: schemas/incident.search.output.json

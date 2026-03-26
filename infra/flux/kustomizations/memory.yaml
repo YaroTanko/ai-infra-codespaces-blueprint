@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: memory
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: ./infra/memory
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: ai-infra-config
