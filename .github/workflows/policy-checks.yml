@@ -2,7 +2,7 @@ name: policy-checks
 
 on:
   push:
-    branches: [main, cursor/design-plan-implementation-41d8]
+    branches: [main]
   pull_request:
 
 jobs:
